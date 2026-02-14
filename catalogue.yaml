@@ -51,11 +51,11 @@
         state: present
     - name: check products loaded
       ansible.builtin.command: "mongo --host {{ MONGODB_HOST }} --eval 'db.getMongo().getDBNames().indexOf(\"catalogue\")'"
-      register: catalogue_outout
+      register: catalogue_output
 
-      -name: Print the output
+    - name: Print the output
       ansible.builtin.debug:
-        msg: "{{ catalogue_outout }}"
+        msg: "{{ catalogue_output }}"
 
 
   
