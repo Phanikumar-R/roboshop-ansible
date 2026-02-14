@@ -1,4 +1,4 @@
-# ansible-playbook -i  localhost ,-e 'instances=["mongodb","catalogue","redis","user","cart","mysql","shipping","rabbitmq","payment","frontend"]' roboshop.yaml
+# ansible-playbook -i  localhost, -e 'instances=["mongodb","catalogue","redis","user","cart","mysql","shipping","rabbitmq","payment","frontend"]' roboshop.yaml
 
 - name: create ec2 and route 53 records
   hosts: all
@@ -37,7 +37,9 @@
       record: "{{ item.item }}.{{ env }}.{{ domain_name }}" #mongodb.dev.devopsskillup.online
       type: A
       ttl: 300
+      wait: false
       value: "{{ item.instances[0].private_ip_address }}" 
+     
       overwrite: true
     loop: "{{ ec2_output.results }}"
   - name: create route 53 record for frontend
@@ -47,6 +49,7 @@
       record: "roboshop.{{ env }}.{{ domain_name }}" #roboshop.dev.devopsskillup.online
       type: A
       ttl: 300
+      wait: false
       value: "{{ item.instances[0].public_ip_address }}" 
       overwrite: true
     loop: "{{ ec2_output.results }}"
@@ -61,6 +64,7 @@
       record: "{{ item.item }}.{{ env }}.{{ domain_name }}" #mongodb.dev.devopsskillup.online
       type: A
       ttl: 300
+      wait: false
     loop: "{{ instances }}"
     when: action == "destroy"
 
