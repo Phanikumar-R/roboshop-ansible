@@ -5,6 +5,7 @@
         "gpgcheck",
         "mongosh",
         "mysqld",
-        "nologin"
+        "nologin",
+        "vhost"
     ]
 }
