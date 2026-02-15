@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
+        "chdir",
         "devopsskillup",
         "mongosh",
-        "mysqld"
+        "mysqld",
+        "nologin"
     ]
 }
