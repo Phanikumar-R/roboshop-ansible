@@ -1,0 +1,14 @@
+- name: configure rabbitmq server
+  hosts: rabbitmq
+  become: yes
+  tasks:
+    - name: install rabbitmq server
+      ansible.builtin.dnf:
+        name: rabbitmq-server
+        state: present
+
+    - name: start rabbitmq service
+      ansible.builtin.systemd:
+        name: rabbitmq-server
+        state: started
+        enabled: yes
