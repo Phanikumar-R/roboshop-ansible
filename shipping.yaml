@@ -4,7 +4,7 @@
   tasks:
     - name: install maven and mysql
       ansible.builtin.dnf:
-        name: {{ item }}
+        name: "{{ item }}"
         state: present
       loop:
         - maven
@@ -74,7 +74,7 @@
         login user: root
         login password: RoboShop@1
 
-        target: {{ item }}
+        target: "{{ item }}"
       loop:
         - /app/db/schema.sql
         - /app/db/app-user.sql
