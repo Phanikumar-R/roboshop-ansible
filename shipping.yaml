@@ -70,9 +70,9 @@
       ansible.builtin.mysql_db:
         state: import
         name:  all
-        login_host: {{MYSQL_HOST}}
-        login user: root
-        login password: RoboShop@1
+        login_host: "{{MYSQL_HOST}}"
+        login_user: root
+        login_password: RoboShop@1
 
         target: "{{ item }}"
       loop:
