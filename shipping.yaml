@@ -66,13 +66,13 @@
         daemon_reload: true
 
 
-    - name: install dependencie
+    - name: install dependency
       ansible.builtin.pip:
-      name: "{{ item }}"
-      executable: pip3.9
+        name: "{{ item }}"
+        executable: pip3.9
       loop:
-      - cryptography
-      - PyMySQL
+        - cryptography
+        - PyMySQL
 
 
 
